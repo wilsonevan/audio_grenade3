@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :products
     # resources :users
     put 'add_to_cart', to: 'users#add_to_cart'
+    get '/braintree_token', to: 'braintree#token'
+    post '/payment', to: 'braintree#payment'
   end
 
   get '*other', to: 'static#index'

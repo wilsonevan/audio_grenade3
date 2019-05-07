@@ -71,6 +71,11 @@ const ProductContainer = styled.div`
   margin: 2rem;
   background-color: #f2f2f2;
   box-shadow: rgba(221, 221, 221, 0.5) 0px 1px 2px 0px;
+
+
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 const ProductDetailsContainer = styled.div`
@@ -80,6 +85,11 @@ const ProductDetailsContainer = styled.div`
   align-items: flex-start;
   padding: 1rem;
   color: black;
+
+
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 const ProductImage = styled.div`
@@ -88,14 +98,20 @@ const ProductImage = styled.div`
   background-size: 300px 300px;
   height: 300px;
   width: 300px;
+
+  :hover {
+    cursor: pointer;
+  }
 `;
 const ProductHeader = styled.div`
   color: #424242;
 
   :hover {
     color: #ff6d00;
+    cursor: pointer;
   }
 `;
+
 const ProductDescription = styled.div``;
 const ProductPrice = styled.div`
   color: #ff8d39;

@@ -21,7 +21,7 @@ const ProductView = props => {
     // If guest, add to cart in localStorage
     // Else, add to user's cart
     if (user) {
-      axios.put('/api/add_to_cart', {
+      axios.put("/api/add_to_cart", {
         newItem: product,
         quantity: quantity
       });
@@ -32,7 +32,8 @@ const ProductView = props => {
       var newItem = {
         name: product.name,
         price: product.price,
-        quantity: quantity
+        quantity: quantity,
+        image: product.image
       };
 
       // There are already items in the cart, so add new item to the end of the cart
@@ -52,12 +53,13 @@ const ProductView = props => {
       }
 
       // Else, it is the first Item to be added to the cart
-      else newCart = JSON.stringify(newItem);
+      else newCart = JSON.stringify([newItem]);
 
-      localStorage.setItem("cart", newCart);
-
-      // TBD Improve the styling of the alert
-      alert(`Successfully added ${product.name} to your cart`);
+      if (!duplicateItemFlag) {
+        localStorage.setItem("cart", newCart);
+        // TBD Improve the styling of the alert
+        alert(`Successfully added ${product.name} to your cart`);
+      }
     }
   };
 

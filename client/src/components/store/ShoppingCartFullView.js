@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { AuthConsumer } from "../../providers/AuthProvider";
 import axios from "axios";
 import { Button } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 const ShoppingCartFullView = props => {
   const [cart, setCart] = useState([]);
@@ -19,14 +20,24 @@ const ShoppingCartFullView = props => {
       });
     } else {
       // Guest user, get cart from local storage
-      let newCart = localStorage.getItem("cart");
-      if (newCart !== "") setCart(JSON.parse(newCart));
+      var newCart = JSON.parse(localStorage.getItem("cart"));
+      if (newCart !== "") setCart(newCart);
     }
   }, []);
 
   const adjustQuantity = (product, n) => {
     // Set the quantity of the items in the cart
     // if (!(n < 0 && quantity <= 1)) setQuantity(quantity + n);
+  };
+
+  const calcTotal = () => {
+    var total = 0;
+
+    cart.map(product => {
+      total = total + product.price;
+    });
+
+    return total;
   };
 
   return (
@@ -64,14 +75,19 @@ const ShoppingCartFullView = props => {
                   </ProductContainer>
                 );
               })}
-              <TotalsContainer>Your total goes here...</TotalsContainer>
+              <TotalsContainer>
+                <TotalsText>Subtotal: ${calcTotal()}</TotalsText>
+                <Link to="/checkout">
+                  <Button primary size="large">
+                    Checkout
+                  </Button>
+                </Link>
+              </TotalsContainer>
             </>
           ) : (
-            <ProductContainer>
-              <ProductHeader>
-                <p>Your Shopping Cart is Empty.</p>
-              </ProductHeader>
-            </ProductContainer>
+            <TotalsContainer>
+              <TotalsText>Your Shopping Cart is Empty.</TotalsText>
+            </TotalsContainer>
           )}
         </CartContainer>
       </PageContainer>
@@ -88,7 +104,6 @@ const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // flex-wrap: wrap;
   align-items: center;
 `;
 
@@ -120,7 +135,7 @@ const ProductContainer = styled.div`
 const ProductDetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: flex-start;
   padding: 1rem;
   color: black;
@@ -162,7 +177,21 @@ const QuantityInput = styled.input`
   border-radius: 5px;
 `;
 
-const TotalsContainer = styled(ProductContainer)``;
+const TotalsContainer = styled(ProductContainer)`
+  display: flex;
+  justify-content: space-around;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+`;
+
+const TotalsText = styled.h4`
+  margin-left: 5rem;
+  // padding-left: 1rem;
+  color: #424242;
+  font-size: 1.5rem;
+`;
+
+const CheckoutButton = styled.button``;
 
 const ConnectedShoppingCartFullView = props => (
   <AuthConsumer>
