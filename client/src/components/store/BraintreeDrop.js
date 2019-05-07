@@ -5,19 +5,34 @@ import BraintreeDropin from "braintree-dropin-react";
 import axios from "axios";
 import styled from "styled-components";
 import BraintreeSubmitButton from "./BraintreeSubmitButton";
+import { Redirect, } from 'react-router-dom';
 
-const BraintreeDrop = () => {
-  const [loaded, setLoaded] = useState("false");
+const BraintreeDrop = (props) => {
+  const [loaded, setLoaded] = useState(false);
   const [token, setToken] = useState("");
+  const [redirect, setRedirect] = useState(false);
+  const [transactionId, setTransactionId] = useState('')
 
   useEffect(() => {
     axios.get("/api/braintree_token").then(res => {
       setToken(res.data);
-      setLoaded("true");
+      setLoaded(true);
     });
   }, []);
 
-  const handlePaymentMethod = payload => {};
+  const handlePaymentMethod = payload => {
+    const { amount } = props;
+
+    axios.post('/api/payment', { amount, ...payload, })
+      .then( res => {
+        setRedirect(true)
+        setTransactionId(res.data.transactionId)
+      })
+      .catch( res => {
+        window.location.reload();
+    });
+
+  };
 
   const renderSubmitButton = ({ onClick, isDisabled, text }) => {
     return (
@@ -27,7 +42,14 @@ const BraintreeDrop = () => {
     );
   };
 
-  if (loaded === "true") {
+  if(redirect)
+      return(
+        <Redirect to={{
+          pathname: '/payment_success',
+          state: { amount: props.amount, transactionId }
+        }}/>
+      );
+  if (loaded) {
     return (
       <Container>
         <MyBraintreeDropin

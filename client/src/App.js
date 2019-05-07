@@ -16,7 +16,7 @@ import AllProducts from "./components/store/AllProducts";
 import ProductView from "./components/store/ProductView";
 import ShoppingCartFullView from "./components/store/ShoppingCartFullView";
 import CheckoutView from './components/store/CheckoutView';
-import BraintreeTest from './components/store/BraintreeTest';
+import PaymentSuccess from './components/store/PaymentSuccess';
 
 function App() {
   return (
@@ -36,6 +36,7 @@ function App() {
             <Route path="/products/:id" component={ProductView} />
             <Route exact path="/cart" component={ShoppingCartFullView} />
             <Route exact path="/checkout" component={CheckoutView} />
+            <Route exact path='/payment_success' component={PaymentSuccess} />
             <Route component={NoMatch} />
           </Switch>
           <Footer />
