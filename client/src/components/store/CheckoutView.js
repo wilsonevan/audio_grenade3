@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import BriantreeDrop from "./BraintreeDrop";
+import StripeDrop from "./StripeDrop";
 import axios from "axios";
 import { AuthConsumer } from "../../providers/AuthProvider";
-import ShippingForm from './ShippingForm'
+import ShippingForm from "./ShippingForm";
+import { Elements, StripeProvider } from "react-stripe-elements";
 
 const CheckoutView = props => {
   const [amount, setAmount] = useState(99.99);
@@ -42,19 +43,20 @@ const CheckoutView = props => {
   return (
     <>
       <PageContainer>
-      <PageHeader>Checkout</PageHeader>
-      <ShippingContainer>
-        <ShippingForm />
-      </ShippingContainer>
-      <CCContainer>
-        <BriantreeDrop amount={amount} />
+        <PageHeader>Checkout</PageHeader>
+        <ShippingContainer>
+          <ShippingForm />
+        </ShippingContainer>
+        <CCContainer>
+          {/* <BriantreeDrop amount={amount} /> */}
+          <StripeProvider apiKey="pk_test_k49hu5V9S3ZA8TIur3ANY5PT00SbZi5k0E">
+            <Elements>
+              <StripeDrop />
+            </Elements>
+          </StripeProvider>
         </CCContainer>
-      <ReviewContainer>
-        
-      </ReviewContainer>
-      <PlaceOrderContainer>
-
-      </PlaceOrderContainer>
+        <ReviewContainer />
+        <PlaceOrderContainer />
       </PageContainer>
     </>
   );
@@ -72,15 +74,12 @@ const PageContainer = styled.div`
   align-items: center;
 `;
 
-const ShippingContainer = styled.div`
+const ShippingContainer = styled.div``;
 
-`
+const CCContainer = styled(ShippingContainer)``;
 
-const CCContainer = styled(ShippingContainer)``
-
-const ReviewContainer = styled(ShippingContainer)``
-const PlaceOrderContainer = styled(ShippingContainer)``
-
+const ReviewContainer = styled(ShippingContainer)``;
+const PlaceOrderContainer = styled(ShippingContainer)``;
 
 const PageHeader = styled.h1`
   color: #f2f2f2 !important;

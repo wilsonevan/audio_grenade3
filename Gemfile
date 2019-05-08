@@ -18,7 +18,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem "devise_token_auth", "~> 1.0.0"
 gem 'cloudinary'
 gem "tinify"
-gem 'braintree'
+gem 'stripe', '~> 4.16'
 
 group :development, :test do
   gem 'pry'
