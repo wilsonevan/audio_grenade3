@@ -66,14 +66,16 @@ const Home = () => {
           </Quote>
           <Quote>
             <QuoteAuthor>
-              <AuthorName>Brant Skousea</AuthorName>
-              <AuthorLocation>Mountain America Credit Union</AuthorLocation>
+              <AuthorName>Jared McRae</AuthorName>
+              <AuthorLocation>Liberty Industrial Group</AuthorLocation>
             </QuoteAuthor>
 
             <QuoteText>
-              "The Audio Grenade caught my attention due to it’s small size and
-              huge sound and the ability to add our logo. It is a unique gift
-              that will be used by our customers for years."
+              "I have found the Audio Grenade speakers to be a unique and
+              lasting gift due to their sound properties that turn everything
+              into a speaker. Many of our best clients are streaming music from
+              their phones these days and the name Liberty Industrial Group is
+              in front of them every day."
             </QuoteText>
           </Quote>
         </QuoteContainer>
@@ -217,11 +219,12 @@ const QuoteContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   height: 100%;
+  /* padding: 0.5rem; */
 `;
 
 const Quote = styled.div`
   height: 80%;
-  width: 30%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
