@@ -12,6 +12,20 @@ Montserrat: (weights) 300 & 600
 
 //////////////////////////*/
 
+const GlobalColors = {
+  PrimaryWhite: "#F2F2F2",
+  PrimaryBlack: "#1C1C1C",
+  PrimaryGrey: "#424242",
+  PrimaryRed: "#FFC2A7",
+  PrimaryOrange: "#FFDBA7",
+  PrimaryTeal: "#a3f9d8",
+  PrimaryBlue: "#A9D3F8",
+};
+
+const GlobalSizes = {
+  ScreenWidth: "800px"
+};
+
 const GlobalStyles = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
@@ -49,4 +63,4 @@ input, select, textarea {
 }
 `;
 
-export { GlobalStyles };
+export { GlobalStyles, GlobalSizes, GlobalColors };
