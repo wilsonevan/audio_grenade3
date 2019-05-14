@@ -147,6 +147,7 @@ const Navbar = props => {
                 </SupportLink>
                 {/* </MenuItem> */}
               </Dropdown.Item>
+              <Dropdown.Divider />
               <Dropdown.Item>
                 <SupportLink
                   href="https://audio-grenade.mybigcommerce.com/"
