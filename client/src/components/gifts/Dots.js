@@ -32,8 +32,8 @@ const Dot = styled.div`
   height: 30px;
   width: 30px;
   border: 2px solid white;
-  border-radius: 50%;
-  background: ${props => props.background || 'rgba(0,0,0,0)'}}
+  border-radius: 15px;
+  background: ${props => props.background || 'rgba(0,0,0,0)'};
   margin: 0.5rem;
 `
 

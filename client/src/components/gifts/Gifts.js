@@ -158,9 +158,18 @@ const DetailsContainer = styled.div`
   padding-top: 10rem;
   padding-bottom: 10rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    width: 80vw;
+    height: auto;
+    text-align: center;
+    align-items: center;
+    margin: 0;
+    justify-content: center;
+  } 
 `;
 
 const TextContainer = styled.div`
@@ -168,6 +177,14 @@ const TextContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-end;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    width: 80vw;
+    height: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  } 
 `;
 
 const DetailsTextContainer = styled.div`
@@ -180,6 +197,8 @@ const DetailsTextContainer = styled.div`
 const BrandingHeader = styled.h1`
   margin-bottom: 3rem;
   color: ${GlobalColors.PrimaryWhite} !important;
+  text-align: center; 
+
 `
 
 const DetailsHeader = styled.h1`
