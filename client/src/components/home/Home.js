@@ -5,6 +5,7 @@ import productImage1 from "../../images/_DSC6583.jpg";
 import thirdImage from "../../images/_DSC6399.jpg";
 import { ButtonOrange, ButtonBlue } from "../../styles/Components";
 import { Link } from "react-router-dom";
+import { GlobalSizes } from "../../styles/GlobalStyles";
 
 const Home = () => {
   return (
@@ -88,8 +89,8 @@ const TopContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 100vh;
-  width: 100%;
+  min-height: 100vh;
+  width: 100vw;
   background-image: url(${firstImage}) !important;
   background-position: center;
   background-size: cover;
@@ -97,14 +98,19 @@ const TopContainer = styled.div`
   border-bottom: #349dc4;
   border-bottom-width: 3px;
   border-bottom-style: solid;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const SecondContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh;
-  width: 100%;
+  min-height: 70vh;
+  width: 100vw;
   border-bottom: #349dc4;
   border-bottom-width: 3px;
   border-bottom-style: solid;
@@ -113,7 +119,7 @@ const SecondContainer = styled.div`
 const ThirdContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background-image: url(${thirdImage}) !important;
   background-position: center;
@@ -122,13 +128,19 @@ const ThirdContainer = styled.div`
   border-bottom: #349dc4;
   border-bottom-width: 3px;
   border-bottom-style: solid;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
 `;
 
 const FourthContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 70vh;
+  min-height: 70vh;
   width: 100%;
   border-bottom: #349dc4;
   border-bottom-width: 3px;
@@ -141,7 +153,8 @@ const InnerContainer = styled.div`
   justify-content: space-evenly;
   flex-wrap: wrap-reverse;
   align-items: center;
-  height: 100vh;
+
+  /* height: 100vh; */
   width: 100%;
 `;
 
@@ -161,6 +174,14 @@ const LeftTextContainer = styled.div`
   color: white;
   margin-left: 18vw;
   margin-top: 45vh;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    text-align: center;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+  }
 `;
 
 const RightTextContainer = styled.div`
@@ -169,6 +190,14 @@ const RightTextContainer = styled.div`
   align-items: flex-end;
   margin-right: 5%;
   padding: 20px;
+
+  @media (max-width: 925px) {
+    text-align: center;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+  }
 `;
 
 const FullSoundTextContainer = styled.div`
@@ -178,12 +207,22 @@ const FullSoundTextContainer = styled.div`
   width: 80%;
   margin-right: 10vw;
   margin-top: 44vh;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    margin: 0;
+    margin-top: 5rem;
+    align-items: center;
+  }
 `;
 
 const PrimaryText = styled.h1`
   color: white !important;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid #349dc4;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    text-align: center;
+  }
 `;
 
 const PrimaryOrangeText = styled.h1`
@@ -191,12 +230,20 @@ const PrimaryOrangeText = styled.h1`
   text-align: right;
   padding-bottom: 1rem;
   border-bottom: 1px solid #349dc4;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    text-align: center;
+  }
 `;
 
 const SecondaryText = styled.h2`
   color: white !important;
   margin-top: 0.5rem;
   margin-bottom: 1.5rem;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    text-align: center;
+  }
 `;
 
 const SecondaryGreyText = styled.h2`
@@ -204,6 +251,10 @@ const SecondaryGreyText = styled.h2`
   color: #455a64 !important;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    text-align: center;
+  }
 `;
 
 const QuoteHeader = styled.h1`
@@ -212,19 +263,24 @@ const QuoteHeader = styled.h1`
   color: #ff6d00 !important;
   padding-bottom: 2rem;
   border-bottom: 1px solid #349dc4;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    text-align: center;
+  }
 `;
 
 const QuoteContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
   height: 100%;
   /* padding: 0.5rem; */
 `;
 
 const Quote = styled.div`
-  height: 80%;
-  width: 40%;
+  height: 30rem;
+  width: 40rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -235,11 +291,22 @@ const Quote = styled.div`
   border-bottom: 3px;
   border-bottom-color: #d7d5d5;
   border-bottom-style: solid;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    font-size: 1rem;
+    margin: 1rem;
+    height: 20rem;
+    width: 30rem;
+  }
 `;
 
 const QuoteText = styled.h2`
   font-style: italic;
   text-align: center;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    font-size: 1rem;
+  }
 `;
 
 const QuoteAuthor = styled.div`
