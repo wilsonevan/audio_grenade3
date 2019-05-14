@@ -148,11 +148,14 @@ const Navbar = props => {
                 {/* </MenuItem> */}
               </Dropdown.Item>
               <Dropdown.Item>
-                <NavLink to="/">
+                <SupportLink
+                  href="https://audio-grenade.mybigcommerce.com/"
+                  // target="_blank"
+                >
                   {/* <MenuItem> */}
                   <Item textColor={GlobalColors.PrimaryGrey}>Shop</Item>
                   {/* </MenuItem> */}
-                </NavLink>
+                </SupportLink>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
