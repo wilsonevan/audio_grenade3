@@ -78,7 +78,7 @@ const Navbar = props => {
               href="https://audio-grenade.mybigcommerce.com/"
               // target="_blank"
             >
-              <Item>Shop</Item>
+              <Item>Store</Item>
             </SupportLink>
           </MenuItem>
           <MenuItem>

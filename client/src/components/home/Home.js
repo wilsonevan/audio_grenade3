@@ -153,6 +153,7 @@ const FourthContainer = styled.div`
   border-bottom: #349dc4;
   border-bottom-width: 3px;
   border-bottom-style: solid;
+  padding-bottom: 3rem;
 `;
 
 const InnerContainer = styled.div`
