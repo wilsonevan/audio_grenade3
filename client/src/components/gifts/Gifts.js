@@ -6,6 +6,8 @@ import LeftArrow from "./LeftArrow";
 import firstImage from "../../images/_DSC8699_16_9_AR.jpg";
 import secondImage from "../../images/_DSC8752_16_9_AR.jpg";
 import thirdImage from "../../images/gallery_bx_6th_16_9_AR.jpg";
+import { GlobalColors, GlobalSizes } from "../../styles/GlobalStyles";
+import { Loader } from "semantic-ui-react";
 
 const Gifts = () => {
   const [currentSlide, setCurrentSlide] = useState(1);
@@ -49,36 +51,47 @@ const Gifts = () => {
 
   return (
     <>
-      <RotationContainer>
-        <BrandingHeader>Custom Company Branding</BrandingHeader>
-        <SlideContainer slideImage={getCurrentSlide()} slideWidth={slideWidth}>
-          <EmptyContainer />
-          <ArrowContainer>
-            <LeftArrow minusSlide={() => minusSlide()} />
-            <RightArrow plusSlide={() => plusSlide()} />
-          </ArrowContainer>
-          <DotsContainer>
-            <Dots numDots={numSlides} goToSlide={() => goToSlide()} currentDot={currentSlide}/>
-          </DotsContainer>
-        </SlideContainer>
-      </RotationContainer>
-      <DetailsContainer>
-        <TextContainer>
-          <DetailsHeader>For details, please contact:</DetailsHeader>
-          <DetailsText>Chris Wilson, CTS</DetailsText>
-          <DetailsTextContainer>
-            <DetailsLabel>Phone: </DetailsLabel>
-            <DetailsBigText>801-783-6269</DetailsBigText>
-          </DetailsTextContainer>
-          <DetailsTextContainer>
-            <DetailsLabel>Email: </DetailsLabel>
-            <DetailsBigText>chris@audio-grenade.com</DetailsBigText>
-          </DetailsTextContainer>
-        </TextContainer>
-      </DetailsContainer>
+      <PageContainer>
+        <RotationContainer>
+          <BrandingHeader>Custom Company Branding</BrandingHeader>
+          <SlideContainer>
+            {/* <EmptyContainer /> */}
+            <SlideImage src={firstImage} current={currentSlide} slideNum={1} />
+            <SlideImage src={secondImage} current={currentSlide} slideNum={2} />
+            <SlideImage src={thirdImage} current={currentSlide} slideNum={3} />
+            <ArrowContainer>
+              <LeftArrow minusSlide={() => minusSlide()} />
+              <RightArrow plusSlide={() => plusSlide()} />
+            </ArrowContainer>
+            <DotsContainer>
+              <Dots
+                numDots={numSlides}
+                goToSlide={() => goToSlide()}
+                currentDot={currentSlide}
+              />
+            </DotsContainer>
+          </SlideContainer>
+        </RotationContainer>
+        <DetailsContainer>
+          <TextContainer>
+            <DetailsHeader>For details, please contact:</DetailsHeader>
+            <DetailsText>Chris Wilson, CTS</DetailsText>
+            <DetailsTextContainer>
+              <DetailsLabel>Phone: </DetailsLabel>
+              <DetailsBigText>801-783-6269</DetailsBigText>
+            </DetailsTextContainer>
+            <DetailsTextContainer>
+              <DetailsLabel>Email: </DetailsLabel>
+              <DetailsBigText>chris@audio-grenade.com</DetailsBigText>
+            </DetailsTextContainer>
+          </TextContainer>
+        </DetailsContainer>
+      </PageContainer>
     </>
   );
 };
+
+const PageContainer = styled.div``;
 
 const RotationContainer = styled.div`
   padding-top: 10rem;
@@ -95,28 +108,49 @@ const SlideContainer = styled.div`
   position: relative;
   top: 0;
   left: 0;
-  height: ${props => (props.slideWidth / 16) * 9}px;
-  width: ${props => props.slideWidth}px;
-  transition: background-image 0.5s ease-in-out;
+  /* height: ${props => (props.slideWidth / 16) * 9}px;
+  width: ${props => props.slideWidth}px; */
+  /* transition: background-image 0.5s ease-in-out; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-image: url(${props => props.slideImage}) !important;
+  /* background-image: url(${props => props.slideImage}) !important;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 100% 100%; */
   border-top: 3px solid #349dc4;
   border-bottom: 3px solid #349dc4;
   border-left: 3px solid #F2F2F2;
   border-right: 3px solid #F2F2F2;
 `;
 
-const EmptyContainer = styled.div``
+const SlideImage = styled.img`
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 66vw;
+  height: auto;
+  opacity: 1;
+  visibility: ${props =>
+    props.current === props.slideNum ? "visible" : "hidden"};
+  display: ${props => (props.current === props.slideNum ? "inline" : "none")};
+  /* opacity: ${props => (props.current === props.slideNum ? 1 : 0)}; */
+  transition: visibility 1s, opacity 1.5s linear;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    width: 90vw;
+  }
+`;
 
 const ArrowContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  left: 0;
+  width: 100%;
 `;
 
 const DotsContainer = styled.div`
@@ -124,15 +158,28 @@ const DotsContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   padding: 1rem;
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  width: 100%;
 `;
 
 const DetailsContainer = styled.div`
   padding-top: 10rem;
   padding-bottom: 10rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    width: 80vw;
+    height: auto;
+    text-align: center;
+    align-items: center;
+    margin: 0;
+    justify-content: center;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -140,6 +187,14 @@ const TextContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-end;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    width: 80vw;
+    height: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 const DetailsTextContainer = styled.div`
@@ -151,7 +206,9 @@ const DetailsTextContainer = styled.div`
 
 const BrandingHeader = styled.h1`
   margin-bottom: 3rem;
-`
+  color: ${GlobalColors.PrimaryWhite} !important;
+  text-align: center;
+`;
 
 const DetailsHeader = styled.h1`
   color: #349dc4 !important;

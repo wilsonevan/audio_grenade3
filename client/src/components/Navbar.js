@@ -4,7 +4,8 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../images/logos/AG Grenade Only Transparent.svg";
 import "./Navbar.css";
-import { Button, Icon, Sidebar, Menu } from "semantic-ui-react";
+import { Button, Icon, Sidebar, Menu, Dropdown } from "semantic-ui-react";
+import { GlobalSizes, GlobalColors } from "../styles/GlobalStyles";
 
 const Navbar = props => {
   const [activeItem, setActiveItem] = useState(0);
@@ -42,113 +43,126 @@ const Navbar = props => {
   const centerNavItems = () => {
     return (
       <>
-        <div className="expanded">
-          <CenterMenu>
-            <NavLink to="/">
-              <MenuItem as={isActive(1)} onClick={() => activateItem(1)}>
-                <Item>Home</Item>
-              </MenuItem>
-            </NavLink>
-            <NavLink to="/how-it-works">
-              <MenuItem as={isActive(2)} onClick={() => activateItem(2)}>
-                <Item>How It Works</Item>
-              </MenuItem>
-            </NavLink>
-            <NavLink to="/gifts">
-              <MenuItem as={isActive(3)} onClick={() => activateItem(3)}>
-                <Item>Corporate Gifts</Item>
-              </MenuItem>
-            </NavLink>
-            <NavLink to="/contact">
-              <MenuItem as={isActive(4)} onClick={() => activateItem(4)}>
-                <Item>Contact Us</Item>
-              </MenuItem>
-            </NavLink>
-            <MenuItem>
-              <SupportLink
-                href="https://audio-grenade.freshdesk.com/support/home"
-                target="_blank"
-              >
-                <Item>Support</Item>
-              </SupportLink>
+        <CenterMenu>
+          <NavLink to="/">
+            <MenuItem as={isActive(1)} onClick={() => activateItem(1)}>
+              <Item>Home</Item>
             </MenuItem>
-          </CenterMenu>
-        </div>
+          </NavLink>
+          <NavLink to="/how-it-works">
+            <MenuItem as={isActive(2)} onClick={() => activateItem(2)}>
+              <Item>How It Works</Item>
+            </MenuItem>
+          </NavLink>
+          <NavLink to="/gifts">
+            <MenuItem as={isActive(3)} onClick={() => activateItem(3)}>
+              <Item>Corporate Gifts</Item>
+            </MenuItem>
+          </NavLink>
+          <NavLink to="/contact">
+            <MenuItem as={isActive(4)} onClick={() => activateItem(4)}>
+              <Item>Contact Us</Item>
+            </MenuItem>
+          </NavLink>
+        </CenterMenu>
       </>
     );
   };
 
   const rightNavItems = () => {
-    const {
-      auth: { user, handleLogout },
-      history
-    } = props;
-
-    if (user) {
-      return (
-        <>
-          <div className="expanded">
-            <RightMenu>
-              <NavLink to="/store" onClick={() => activateItem(5)}>
-                <MenuItem as={isActive(5)}>
-                  <Item>Shop</Item>
-                </MenuItem>
-              </NavLink>
-              <NavLink to="/login" onClick={() => handleLogout(history)}>
-                <MenuItem>
-                  <Item>Logout</Item>
-                </MenuItem>
-              </NavLink>
-            </RightMenu>
-          </div>
-
-          <div className="compact">
-            <RightMenu>
-              <Item>
-                <Button compact icon onClick={() => handleMenuToggle()}>
-                  <Icon name="bars" />
-                </Button>
-              </Item>
-            </RightMenu>
-            <Sidebar
-              as={Menu}
-              animation="overlay"
-              icon="labeled"
-              inverted
-              onHide={() => handleSidebarHide()}
-              vertical
-              visible={visible}
-              width="thin"
-              direction="right"
+    return (
+      <>
+        <RightMenu>
+          <MenuItem as={isActive(5)}>
+            <SupportLink
+              href="https://audio-grenade.mybigcommerce.com/"
+              // target="_blank"
             >
-              <NavLink to="/store" onClick={() => activateItem(5)}>
-                <Menu.Item>Shop</Menu.Item>
-              </NavLink>
-              <NavLink to="/" onClick={() => handleLogout(history)}>
-                <Menu.Item>Logout</Menu.Item>
-              </NavLink>
-            </Sidebar>
-          </div>
-        </>
-      );
-    } else {
-      return (
-        <>
-          <RightMenu>
-            <NavLink to="/store" onClick={() => activateItem(5)}>
-              <MenuItem as={isActive(5)}>
-                <Item>Shop</Item>
-              </MenuItem>
-            </NavLink>
-            <NavLink to="/login" onClick={() => activateItem(6)}>
-              <MenuItem as={isActive(6)}>
-                <Item>Login/Register</Item>
-              </MenuItem>
-            </NavLink>
-          </RightMenu>
-        </>
-      );
-    }
+              <Item>Shop</Item>
+            </SupportLink>
+          </MenuItem>
+          <MenuItem>
+            <SupportLink
+              href="https://audio-grenade.freshdesk.com/support/home"
+              target="_blank"
+            >
+              <Item>Support</Item>
+            </SupportLink>
+          </MenuItem>
+        </RightMenu>
+      </>
+    );
+  };
+
+  const compactNavMenu = () => {
+    return (
+      <>
+        <CompactNavContainer>
+          <Dropdown
+            button
+            className="icon"
+            size="huge"
+            direction="left"
+            fluid
+            icon="bars"
+          >
+            <Dropdown.Menu>
+              <Dropdown.Item>
+                <NavLink to="/">
+                  {/* <MenuItem as={isActive(1)} onClick={() => activateItem(1)}> */}
+                  <Item textColor={GlobalColors.PrimaryGrey}>Home</Item>
+                  {/* </MenuItem> */}
+                </NavLink>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <NavLink to="/how-it-works">
+                  {/* <MenuItem as={isActive(2)} onClick={() => activateItem(2)}> */}
+                  <Item textColor={GlobalColors.PrimaryGrey}>How It Works</Item>
+                  {/* </MenuItem> */}
+                </NavLink>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <NavLink to="/gifts">
+                  {/* <MenuItem as={isActive(3)} onClick={() => activateItem(3)}> */}
+                  <Item textColor={GlobalColors.PrimaryGrey}>
+                    Corporate Gifts
+                  </Item>
+                  {/* </MenuItem> */}
+                </NavLink>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <NavLink to="/contact">
+                  {/* <MenuItem as={isActive(4)} onClick={() => activateItem(4)}> */}
+                  <Item textColor={GlobalColors.PrimaryGrey}>Contact Us</Item>
+                  {/* </MenuItem> */}
+                </NavLink>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                {/* <MenuItem> */}
+                <SupportLink
+                  href="https://audio-grenade.freshdesk.com/support/home"
+                  target="_blank"
+                >
+                  <Item textColor={GlobalColors.PrimaryGrey}>Support</Item>
+                </SupportLink>
+                {/* </MenuItem> */}
+              </Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item>
+                <SupportLink
+                  href="https://audio-grenade.mybigcommerce.com/"
+                  // target="_blank"
+                >
+                  {/* <MenuItem> */}
+                  <Item textColor={GlobalColors.PrimaryGrey}>Shop</Item>
+                  {/* </MenuItem> */}
+                </SupportLink>
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </CompactNavContainer>
+      </>
+    );
   };
 
   return (
@@ -158,6 +172,7 @@ const Navbar = props => {
           <Logo src={logo} alt="logo" className="App-logo" />
           <CompanyName>Audio Grenade</CompanyName>
         </MenuItem>
+        {compactNavMenu()}
         {centerNavItems()}
         {rightNavItems()}
       </NavMenu>
@@ -169,6 +184,17 @@ const NavContainer = styled.div`
   position: absolute;
   top: 0rem;
   width: 100%;
+`;
+
+const CompactNavContainer = styled.div`
+  display: none;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    display: inline;
+  }
 `;
 
 const MenuItem = styled.li`
@@ -229,7 +255,11 @@ const RightMenu = styled.div`
   border-bottom: 5px !important;
   display: flex;
   justify-content: flex-end;
-  padding: 2rem 2rem 1rem 2rem;
+  padding: 2rem 2rem 1rem 0rem;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    display: none;
+  }
 `;
 
 const CenterMenu = styled.div`
@@ -239,6 +269,10 @@ const CenterMenu = styled.div`
   display: flex;
   justify-content: center;
   padding: 2rem 2rem 1rem 2rem;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    display: none;
+  }
 `;
 
 const ConnectedNavbar = props => (

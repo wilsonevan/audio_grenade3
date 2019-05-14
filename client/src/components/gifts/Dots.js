@@ -18,7 +18,6 @@ const Dots = props => {
       )
     }
     return dotsComponents
-
   }
 
   return (
@@ -33,7 +32,7 @@ const Dot = styled.div`
   width: 30px;
   border: 2px solid white;
   border-radius: 15px;
-  background: ${props => props.background || 'rgba(0,0,0,0)'}}
+  background: ${props => props.background || 'rgba(0,0,0,0)'};
   margin: 0.5rem;
 `
 

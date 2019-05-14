@@ -1,93 +1,104 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import firstImage from "../../images/_DSC6506_cropped.jpg";
 import productImage1 from "../../images/_DSC6583.jpg";
 import thirdImage from "../../images/_DSC6399.jpg";
 import { ButtonOrange, ButtonBlue } from "../../styles/Components";
 import { Link } from "react-router-dom";
+import { GlobalColors, GlobalSizes } from "../../styles/GlobalStyles";
+import { Loader } from "semantic-ui-react";
 
 const Home = () => {
   return (
     <>
-      <TopContainer>
-        <LeftTextContainer>
-          <PrimaryText>Audio Grenade</PrimaryText>
-          <SecondaryText>
-            A unique, useful gift for your best clients and employees
-          </SecondaryText>
-          <Link to="/register">
-            <ButtonOrange
-              style={{
-                fontSize: "1.5rem",
-                paddingLeft: "2rem",
-                paddingRight: "2rem"
-              }}
+      <PageContainer>
+        <TopContainer>
+          <LeftTextContainer>
+            <PrimaryText>Audio Grenade</PrimaryText>
+            <SecondaryText>
+              A unique, useful gift for your best clients and employees
+            </SecondaryText>
+            <SupportLink
+              href="https://audio-grenade.mybigcommerce.com/"
+              // target="_blank"
             >
-              Shop Now
-            </ButtonOrange>
-          </Link>
-        </LeftTextContainer>
-      </TopContainer>
-      <SecondContainer>
-        <InnerContainer>
-          <SecondImage src={productImage1} alt="code-screenshot" />
-          <RightTextContainer>
-            <PrimaryOrangeText>Sound Gifts</PrimaryOrangeText>
-            <SecondaryGreyText>For your Corporate Branding</SecondaryGreyText>
-          </RightTextContainer>
-        </InnerContainer>
-      </SecondContainer>
-      <ThirdContainer>
-        {/* <FullSoundTextContainer>
+              <ButtonOrange
+                style={{
+                  fontSize: "1.5rem",
+                  paddingLeft: "2rem",
+                  paddingRight: "2rem"
+                }}
+              >
+                Shop Now
+              </ButtonOrange>
+            </SupportLink>
+          </LeftTextContainer>
+        </TopContainer>
+        <SecondContainer>
+          <InnerContainer>
+            <SecondImage src={productImage1} alt="code-screenshot" />
+            <RightTextContainer>
+              <PrimaryOrangeText>Sound Gifts</PrimaryOrangeText>
+              <SecondaryGreyText>For your Corporate Branding</SecondaryGreyText>
+            </RightTextContainer>
+          </InnerContainer>
+        </SecondContainer>
+        <ThirdContainer>
+          {/* <FullSoundTextContainer>
           <FullSoundText>
             Experience unique, full bass, 360 degree sound</FullSoundText>
             <FullSoundText>
             
           </FullSoundText>
         </FullSoundTextContainer> */}
-        <FullSoundTextContainer>
-          <PrimaryText>360 Degree Sound</PrimaryText>
-          <SecondaryText>at the office, gym, or home</SecondaryText>
-        </FullSoundTextContainer>
-      </ThirdContainer>
-      <FourthContainer>
-        <QuoteHeader>Happy Customers</QuoteHeader>
-        <QuoteContainer>
-          <Quote>
-            <QuoteAuthor>
-              <AuthorName>Brant Skousea</AuthorName>
-              <AuthorLocation>Mountain America Credit Union</AuthorLocation>
-            </QuoteAuthor>
-            <QuoteText>
-              "The Audio Grenade caught my attention due to it’s small size and
-              huge sound and the ability to add our logo. It is a unique gift
-              that will be used by our customers for years."
-            </QuoteText>
-          </Quote>
-          <Quote>
-            <QuoteAuthor>
-              <AuthorName>Brant Skousea</AuthorName>
-              <AuthorLocation>Mountain America Credit Union</AuthorLocation>
-            </QuoteAuthor>
+          <FullSoundTextContainer>
+            <PrimaryText>360 Degree Sound</PrimaryText>
+            <SecondaryText>at the office, gym, or home</SecondaryText>
+          </FullSoundTextContainer>
+        </ThirdContainer>
+        <FourthContainer>
+          <QuoteHeader>Happy Customers</QuoteHeader>
+          <QuoteContainer>
+            <Quote>
+              <QuoteAuthor>
+                <AuthorName>Brant Skousea</AuthorName>
+                <AuthorLocation>Mountain America Credit Union</AuthorLocation>
+              </QuoteAuthor>
+              <QuoteText>
+                "The Audio Grenade caught my attention due to it’s small size
+                and huge sound and the ability to add our logo. It is a unique
+                gift that will be used by our customers for years."
+              </QuoteText>
+            </Quote>
+            <Quote>
+              <QuoteAuthor>
+                <AuthorName>Jared McRae</AuthorName>
+                <AuthorLocation>Liberty Industrial Group</AuthorLocation>
+              </QuoteAuthor>
 
-            <QuoteText>
-              "The Audio Grenade caught my attention due to it’s small size and
-              huge sound and the ability to add our logo. It is a unique gift
-              that will be used by our customers for years."
-            </QuoteText>
-          </Quote>
-        </QuoteContainer>
-      </FourthContainer>
+              <QuoteText>
+                "I have found the Audio Grenade speakers to be a unique and
+                lasting gift due to their sound properties that turn everything
+                into a speaker. Many of our best clients are streaming music
+                from their phones these days and the name Liberty Industrial
+                Group is in front of them every day."
+              </QuoteText>
+            </Quote>
+          </QuoteContainer>
+        </FourthContainer>
+      </PageContainer>
     </>
   );
 };
+
+const PageContainer = styled.div``;
 
 const TopContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 100vh;
-  width: 100%;
+  min-height: 100vh;
+  width: 100vw;
   background-image: url(${firstImage}) !important;
   background-position: center;
   background-size: cover;
@@ -95,14 +106,19 @@ const TopContainer = styled.div`
   border-bottom: #349dc4;
   border-bottom-width: 3px;
   border-bottom-style: solid;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const SecondContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh;
-  width: 100%;
+  min-height: 70vh;
+  width: 100vw;
   border-bottom: #349dc4;
   border-bottom-width: 3px;
   border-bottom-style: solid;
@@ -111,7 +127,7 @@ const SecondContainer = styled.div`
 const ThirdContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background-image: url(${thirdImage}) !important;
   background-position: center;
@@ -120,13 +136,19 @@ const ThirdContainer = styled.div`
   border-bottom: #349dc4;
   border-bottom-width: 3px;
   border-bottom-style: solid;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
 `;
 
 const FourthContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 70vh;
+  min-height: 70vh;
   width: 100%;
   border-bottom: #349dc4;
   border-bottom-width: 3px;
@@ -139,7 +161,8 @@ const InnerContainer = styled.div`
   justify-content: space-evenly;
   flex-wrap: wrap-reverse;
   align-items: center;
-  height: 100vh;
+
+  /* height: 100vh; */
   width: 100%;
 `;
 
@@ -159,6 +182,14 @@ const LeftTextContainer = styled.div`
   color: white;
   margin-left: 18vw;
   margin-top: 45vh;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    text-align: center;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+  }
 `;
 
 const RightTextContainer = styled.div`
@@ -167,6 +198,14 @@ const RightTextContainer = styled.div`
   align-items: flex-end;
   margin-right: 5%;
   padding: 20px;
+
+  @media (max-width: 925px) {
+    text-align: center;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+  }
 `;
 
 const FullSoundTextContainer = styled.div`
@@ -176,12 +215,22 @@ const FullSoundTextContainer = styled.div`
   width: 80%;
   margin-right: 10vw;
   margin-top: 44vh;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    margin: 0;
+    margin-top: 5rem;
+    align-items: center;
+  }
 `;
 
 const PrimaryText = styled.h1`
   color: white !important;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid #349dc4;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    text-align: center;
+  }
 `;
 
 const PrimaryOrangeText = styled.h1`
@@ -189,12 +238,20 @@ const PrimaryOrangeText = styled.h1`
   text-align: right;
   padding-bottom: 1rem;
   border-bottom: 1px solid #349dc4;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    text-align: center;
+  }
 `;
 
 const SecondaryText = styled.h2`
   color: white !important;
   margin-top: 0.5rem;
   margin-bottom: 1.5rem;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    text-align: center;
+  }
 `;
 
 const SecondaryGreyText = styled.h2`
@@ -202,6 +259,10 @@ const SecondaryGreyText = styled.h2`
   color: #455a64 !important;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    text-align: center;
+  }
 `;
 
 const QuoteHeader = styled.h1`
@@ -210,18 +271,24 @@ const QuoteHeader = styled.h1`
   color: #ff6d00 !important;
   padding-bottom: 2rem;
   border-bottom: 1px solid #349dc4;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    text-align: center;
+  }
 `;
 
 const QuoteContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
   height: 100%;
+  /* padding: 0.5rem; */
 `;
 
 const Quote = styled.div`
-  height: 80%;
-  width: 30%;
+  height: 30rem;
+  width: 40rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -232,11 +299,22 @@ const Quote = styled.div`
   border-bottom: 3px;
   border-bottom-color: #d7d5d5;
   border-bottom-style: solid;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    font-size: 1rem;
+    margin: 1rem;
+    height: 20rem;
+    width: 30rem;
+  }
 `;
 
 const QuoteText = styled.h2`
   font-style: italic;
   text-align: center;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    font-size: 1rem;
+  }
 `;
 
 const QuoteAuthor = styled.div`
@@ -254,6 +332,12 @@ const AuthorName = styled.h3`
 const AuthorLocation = styled.h3`
   text-align: center;
   margin: 0;
+`;
+
+const SupportLink = styled.a`
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 export default Home;
