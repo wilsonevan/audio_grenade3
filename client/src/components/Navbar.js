@@ -64,14 +64,6 @@ const Navbar = props => {
               <Item>Contact Us</Item>
             </MenuItem>
           </NavLink>
-          <MenuItem>
-            <SupportLink
-              href="https://audio-grenade.freshdesk.com/support/home"
-              target="_blank"
-            >
-              <Item>Support</Item>
-            </SupportLink>
-          </MenuItem>
         </CenterMenu>
       </>
     );
@@ -87,6 +79,14 @@ const Navbar = props => {
               // target="_blank"
             >
               <Item>Shop</Item>
+            </SupportLink>
+          </MenuItem>
+          <MenuItem>
+            <SupportLink
+              href="https://audio-grenade.freshdesk.com/support/home"
+              target="_blank"
+            >
+              <Item>Support</Item>
             </SupportLink>
           </MenuItem>
         </RightMenu>

@@ -16,7 +16,10 @@ const Home = () => {
           <SecondaryText>
             A unique, useful gift for your best clients and employees
           </SecondaryText>
-          <Link to="/register">
+          <SupportLink
+                  href="https://audio-grenade.mybigcommerce.com/"
+                  // target="_blank"
+                >
             <ButtonOrange
               style={{
                 fontSize: "1.5rem",
@@ -26,7 +29,7 @@ const Home = () => {
             >
               Shop Now
             </ButtonOrange>
-          </Link>
+          </SupportLink>
         </LeftTextContainer>
       </TopContainer>
       <SecondContainer>
@@ -324,6 +327,12 @@ const AuthorName = styled.h3`
 const AuthorLocation = styled.h3`
   text-align: center;
   margin: 0;
+`;
+
+const SupportLink = styled.a`
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 export default Home;

@@ -6,6 +6,7 @@ import LeftArrow from "./LeftArrow";
 import firstImage from "../../images/_DSC8699_16_9_AR.jpg";
 import secondImage from "../../images/_DSC8752_16_9_AR.jpg";
 import thirdImage from "../../images/gallery_bx_6th_16_9_AR.jpg";
+import {GlobalColors, GlobalSizes} from '../../styles/GlobalStyles'
 
 const Gifts = () => {
   const [currentSlide, setCurrentSlide] = useState(1);
@@ -51,8 +52,11 @@ const Gifts = () => {
     <>
       <RotationContainer>
         <BrandingHeader>Custom Company Branding</BrandingHeader>
-        <SlideContainer slideImage={getCurrentSlide()} slideWidth={slideWidth}>
-          <EmptyContainer />
+        <SlideContainer>
+          {/* <EmptyContainer /> */}
+          <SlideImage src={firstImage} current={currentSlide} slideNum={1}/>
+          <SlideImage src={secondImage} current={currentSlide} slideNum={2}/>
+          <SlideImage src={thirdImage} current={currentSlide} slideNum={3}/>
           <ArrowContainer>
             <LeftArrow minusSlide={() => minusSlide()} />
             <RightArrow plusSlide={() => plusSlide()} />
@@ -95,28 +99,44 @@ const SlideContainer = styled.div`
   position: relative;
   top: 0;
   left: 0;
-  height: ${props => (props.slideWidth / 16) * 9}px;
-  width: ${props => props.slideWidth}px;
-  transition: background-image 0.5s ease-in-out;
+  /* height: ${props => (props.slideWidth / 16) * 9}px;
+  width: ${props => props.slideWidth}px; */
+  /* transition: background-image 0.5s ease-in-out; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-image: url(${props => props.slideImage}) !important;
+  /* background-image: url(${props => props.slideImage}) !important;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 100% 100%; */
   border-top: 3px solid #349dc4;
   border-bottom: 3px solid #349dc4;
   border-left: 3px solid #F2F2F2;
   border-right: 3px solid #F2F2F2;
 `;
 
-const EmptyContainer = styled.div``
+const SlideImage = styled.img`
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 60vw;
+  height: auto;
+  opacity: 1;
+  visibility: ${props => (props.current === props.slideNum ? "visible" : "hidden")};
+  display: ${props => (props.current === props.slideNum ? "inline" : "none")};
+  /* opacity: ${props => (props.current === props.slideNum ? 1 : 0)}; */
+  transition: visibility 1s, opacity 1.5s linear;
+`
 
 const ArrowContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: absolute;
+  z-index: 1;
+  top: 45%;
+  left: 0;
+  width: 100%;
 `;
 
 const DotsContainer = styled.div`
@@ -124,6 +144,10 @@ const DotsContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   padding: 1rem;
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 40%;
 `;
 
 const DetailsContainer = styled.div`
@@ -151,6 +175,7 @@ const DetailsTextContainer = styled.div`
 
 const BrandingHeader = styled.h1`
   margin-bottom: 3rem;
+  color: ${GlobalColors.PrimaryWhite} !important;
 `
 
 const DetailsHeader = styled.h1`
