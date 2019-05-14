@@ -74,7 +74,6 @@ const CreatorContainer = styled.div`
   
   @media (max-width: ${GlobalSizes.ScreenWidth}) {
   justify-content: center;
-
   }
 `;
 

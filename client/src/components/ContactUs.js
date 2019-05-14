@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { GlobalSizes } from "../styles/GlobalStyles";
 
 const ContactUs = () => {
   return (
@@ -56,6 +57,11 @@ const TextContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-end;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const SalesTextContainer = styled.div`
@@ -68,17 +74,16 @@ const SalesTextContainer = styled.div`
 const ImageContainer = styled.div``;
 
 const IntroHeader = styled.h1`
-  color: #F2F2F2 !important;
+  color: #f2f2f2 !important;
 `;
 
-const IntroText = styled.h2`
-`;
+const IntroText = styled.h2``;
 
 const SalesHeader = styled.h1`
-color: #349dc4 !important;
-margin: 0;
-border: none;
-font-size: 2.5rem !important;
+  color: #349dc4 !important;
+  margin: 0;
+  border: none;
+  font-size: 2.5rem !important;
 `;
 
 const SalesText = styled.h1`
