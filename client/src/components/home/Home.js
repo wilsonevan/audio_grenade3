@@ -1,92 +1,97 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import firstImage from "../../images/_DSC6506_cropped.jpg";
 import productImage1 from "../../images/_DSC6583.jpg";
 import thirdImage from "../../images/_DSC6399.jpg";
 import { ButtonOrange, ButtonBlue } from "../../styles/Components";
 import { Link } from "react-router-dom";
-import { GlobalSizes } from "../../styles/GlobalStyles";
+import { GlobalColors, GlobalSizes } from "../../styles/GlobalStyles";
+import { Loader } from "semantic-ui-react";
 
 const Home = () => {
   return (
     <>
-      <TopContainer>
-        <LeftTextContainer>
-          <PrimaryText>Audio Grenade</PrimaryText>
-          <SecondaryText>
-            A unique, useful gift for your best clients and employees
-          </SecondaryText>
-          <SupportLink
-                  href="https://audio-grenade.mybigcommerce.com/"
-                  // target="_blank"
-                >
-            <ButtonOrange
-              style={{
-                fontSize: "1.5rem",
-                paddingLeft: "2rem",
-                paddingRight: "2rem"
-              }}
+      <PageContainer>
+        <TopContainer>
+          <LeftTextContainer>
+            <PrimaryText>Audio Grenade</PrimaryText>
+            <SecondaryText>
+              A unique, useful gift for your best clients and employees
+            </SecondaryText>
+            <SupportLink
+              href="https://audio-grenade.mybigcommerce.com/"
+              // target="_blank"
             >
-              Shop Now
-            </ButtonOrange>
-          </SupportLink>
-        </LeftTextContainer>
-      </TopContainer>
-      <SecondContainer>
-        <InnerContainer>
-          <SecondImage src={productImage1} alt="code-screenshot" />
-          <RightTextContainer>
-            <PrimaryOrangeText>Sound Gifts</PrimaryOrangeText>
-            <SecondaryGreyText>For your Corporate Branding</SecondaryGreyText>
-          </RightTextContainer>
-        </InnerContainer>
-      </SecondContainer>
-      <ThirdContainer>
-        {/* <FullSoundTextContainer>
+              <ButtonOrange
+                style={{
+                  fontSize: "1.5rem",
+                  paddingLeft: "2rem",
+                  paddingRight: "2rem"
+                }}
+              >
+                Shop Now
+              </ButtonOrange>
+            </SupportLink>
+          </LeftTextContainer>
+        </TopContainer>
+        <SecondContainer>
+          <InnerContainer>
+            <SecondImage src={productImage1} alt="code-screenshot" />
+            <RightTextContainer>
+              <PrimaryOrangeText>Sound Gifts</PrimaryOrangeText>
+              <SecondaryGreyText>For your Corporate Branding</SecondaryGreyText>
+            </RightTextContainer>
+          </InnerContainer>
+        </SecondContainer>
+        <ThirdContainer>
+          {/* <FullSoundTextContainer>
           <FullSoundText>
             Experience unique, full bass, 360 degree sound</FullSoundText>
             <FullSoundText>
             
           </FullSoundText>
         </FullSoundTextContainer> */}
-        <FullSoundTextContainer>
-          <PrimaryText>360 Degree Sound</PrimaryText>
-          <SecondaryText>at the office, gym, or home</SecondaryText>
-        </FullSoundTextContainer>
-      </ThirdContainer>
-      <FourthContainer>
-        <QuoteHeader>Happy Customers</QuoteHeader>
-        <QuoteContainer>
-          <Quote>
-            <QuoteAuthor>
-              <AuthorName>Brant Skousea</AuthorName>
-              <AuthorLocation>Mountain America Credit Union</AuthorLocation>
-            </QuoteAuthor>
-            <QuoteText>
-              "The Audio Grenade caught my attention due to it’s small size and
-              huge sound and the ability to add our logo. It is a unique gift
-              that will be used by our customers for years."
-            </QuoteText>
-          </Quote>
-          <Quote>
-            <QuoteAuthor>
-              <AuthorName>Jared McRae</AuthorName>
-              <AuthorLocation>Liberty Industrial Group</AuthorLocation>
-            </QuoteAuthor>
+          <FullSoundTextContainer>
+            <PrimaryText>360 Degree Sound</PrimaryText>
+            <SecondaryText>at the office, gym, or home</SecondaryText>
+          </FullSoundTextContainer>
+        </ThirdContainer>
+        <FourthContainer>
+          <QuoteHeader>Happy Customers</QuoteHeader>
+          <QuoteContainer>
+            <Quote>
+              <QuoteAuthor>
+                <AuthorName>Brant Skousea</AuthorName>
+                <AuthorLocation>Mountain America Credit Union</AuthorLocation>
+              </QuoteAuthor>
+              <QuoteText>
+                "The Audio Grenade caught my attention due to it’s small size
+                and huge sound and the ability to add our logo. It is a unique
+                gift that will be used by our customers for years."
+              </QuoteText>
+            </Quote>
+            <Quote>
+              <QuoteAuthor>
+                <AuthorName>Jared McRae</AuthorName>
+                <AuthorLocation>Liberty Industrial Group</AuthorLocation>
+              </QuoteAuthor>
 
-            <QuoteText>
-              "I have found the Audio Grenade speakers to be a unique and
-              lasting gift due to their sound properties that turn everything
-              into a speaker. Many of our best clients are streaming music from
-              their phones these days and the name Liberty Industrial Group is
-              in front of them every day."
-            </QuoteText>
-          </Quote>
-        </QuoteContainer>
-      </FourthContainer>
+              <QuoteText>
+                "I have found the Audio Grenade speakers to be a unique and
+                lasting gift due to their sound properties that turn everything
+                into a speaker. Many of our best clients are streaming music
+                from their phones these days and the name Liberty Industrial
+                Group is in front of them every day."
+              </QuoteText>
+            </Quote>
+          </QuoteContainer>
+        </FourthContainer>
+      </PageContainer>
     </>
   );
 };
+
+const PageContainer = styled.div``;
 
 const TopContainer = styled.div`
   display: flex;

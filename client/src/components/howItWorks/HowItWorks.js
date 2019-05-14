@@ -1,49 +1,59 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Embed } from "semantic-ui-react";
 import firstImage from "./../../images/_DSC6379_16_9_AR.jpg";
 import secondImage from "./../../images/_DSC6555_16_9_AR.jpg";
-import { GlobalSizes } from "../../styles/GlobalStyles";
+import { GlobalSizes, GlobalColors } from "../../styles/GlobalStyles";
 
 const HowItWorks = () => {
   return (
     <>
-      <TopContainer>
-        <TextContainer>
-          <h1>Overview</h1>
-          <SecondaryText>
-            Everything it touches explodes into sound!
-          </SecondaryText>
-          <TertiaryText>
-            Connects quickly and easily via Bluetooth to your favorite personal
-            electronic device.
-          </TertiaryText>
-        </TextContainer>
-        <EmbedContainer>
-          <Embed
-            aspectRatio="16:9"
-            id="FlnUC3jBOrE"
-            placeholder={firstImage}
-            source="youtube"
-          />
-        </EmbedContainer>
-      </TopContainer>
-      <SecondContainer>
-        <SecondTextContainer>
-          <PrimaryBlueText>Simple to Use</PrimaryBlueText>
-          <SecondaryGreyText>Perfect for meetings on the go</SecondaryGreyText>
-          <TertiaryGreyText>
-            Featuring a rechargeable, long-lasting lithium battery and a built
-            in microphone which allow for 360° mobile conferencing.
-          </TertiaryGreyText>
-        </SecondTextContainer>
-        <EmbedContainer>
-          <Embed id="qIhKNxJzvhs" placeholder={secondImage} source="youtube" />
-        </EmbedContainer>
-      </SecondContainer>
+      <PageContainer>
+        <TopContainer>
+          <TextContainer>
+            <h1>Overview</h1>
+            <SecondaryText>
+              Everything it touches explodes into sound!
+            </SecondaryText>
+            <TertiaryText>
+              Connects quickly and easily via Bluetooth to your favorite
+              personal electronic device.
+            </TertiaryText>
+          </TextContainer>
+          <EmbedContainer>
+            <Embed
+              aspectRatio="16:9"
+              id="FlnUC3jBOrE"
+              placeholder={firstImage}
+              source="youtube"
+            />
+          </EmbedContainer>
+        </TopContainer>
+        <SecondContainer>
+          <SecondTextContainer>
+            <PrimaryBlueText>Simple to Use</PrimaryBlueText>
+            <SecondaryGreyText>
+              Perfect for meetings on the go
+            </SecondaryGreyText>
+            <TertiaryGreyText>
+              Featuring a rechargeable, long-lasting lithium battery and a built
+              in microphone which allow for 360° mobile conferencing.
+            </TertiaryGreyText>
+          </SecondTextContainer>
+          <EmbedContainer>
+            <Embed
+              id="qIhKNxJzvhs"
+              placeholder={secondImage}
+              source="youtube"
+            />
+          </EmbedContainer>
+        </SecondContainer>
+      </PageContainer>
     </>
   );
 };
+
+const PageContainer = styled.div``;
 
 const TopContainer = styled.div`
   display: flex;

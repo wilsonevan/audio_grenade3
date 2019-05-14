@@ -18,7 +18,6 @@ const Dots = props => {
       )
     }
     return dotsComponents
-
   }
 
   return (
