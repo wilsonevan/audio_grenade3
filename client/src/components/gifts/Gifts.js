@@ -119,13 +119,17 @@ const SlideImage = styled.img`
   position: relative;
   top: 0;
   left: 0;
-  width: 60vw;
+  width: 66vw;
   height: auto;
   opacity: 1;
   visibility: ${props => (props.current === props.slideNum ? "visible" : "hidden")};
   display: ${props => (props.current === props.slideNum ? "inline" : "none")};
   /* opacity: ${props => (props.current === props.slideNum ? 1 : 0)}; */
   transition: visibility 1s, opacity 1.5s linear;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    width: 90vw;
+  }
 `
 
 const ArrowContainer = styled.div`
@@ -134,7 +138,7 @@ const ArrowContainer = styled.div`
   align-items: center;
   position: absolute;
   z-index: 1;
-  top: 45%;
+  height: 100%;
   left: 0;
   width: 100%;
 `;
@@ -147,7 +151,7 @@ const DotsContainer = styled.div`
   position: absolute;
   z-index: 1;
   bottom: 0;
-  left: 40%;
+  width: 100%;
 `;
 
 const DetailsContainer = styled.div`
