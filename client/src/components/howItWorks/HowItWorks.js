@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Embed } from "semantic-ui-react";
 import firstImage from "./../../images/_DSC6379_16_9_AR.jpg";
 import secondImage from "./../../images/_DSC6555_16_9_AR.jpg";
+import { GlobalSizes } from "../../styles/GlobalStyles";
 
 const HowItWorks = () => {
   return (
@@ -49,13 +50,18 @@ const TopContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 70vh;
+  flex-wrap: wrap;
+  min-height: 70vh;
   padding: 2rem;
   padding-top: 10rem;
   border-bottom: #349dc4;
   border-bottom-width: 3px;
   border-bottom-style: solid;
   background-color: #424242;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    padding-top: 5rem;
+  }
 `;
 
 const SecondContainer = styled.div`
@@ -63,8 +69,10 @@ const SecondContainer = styled.div`
   flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
-  height: 70vh;
-  width: 100%;
+  flex-wrap: wrap;
+  min-height: 70vh;
+  width: 100vw;
+  padding: 2rem;
   background-color: #f2f2f2;
   border-bottom: #349dc4;
   border-bottom-width: 3px;
@@ -75,7 +83,7 @@ const ThirdContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   height: 60vh;
-  width: 100%;
+  width: 100vw;
   border-bottom: #349dc4;
   border-bottom-width: 3px;
   border-bottom-style: solid;
@@ -86,7 +94,7 @@ const FourthContainer = styled.div`
   flex-direction: column;
   align-items: center;
   height: 60vh;
-  width: 100%;
+  width: 100vw;
   border-bottom: #349dc4;
   border-bottom-width: 3px;
   border-bottom-style: solid;
@@ -97,15 +105,31 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  width: 30%;
+  width: 30vw;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    width: 80vw;
+    height: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+  }
 `;
 
 const SecondTextContainer = styled.div`
-  padding: 3rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 30%;
+  width: 30vw;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    width: 80vw;
+    height: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+  }
 `;
 
 const SecondaryText = styled.h2`
@@ -113,6 +137,10 @@ const SecondaryText = styled.h2`
   text-align: right;
   width: 80%;
   color: #f2f2f2;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    text-align: center;
+  }
 `;
 
 const TertiaryText = styled.h4`
@@ -120,6 +148,10 @@ const TertiaryText = styled.h4`
   margin-bottom: 1.5rem;
   text-align: right;
   color: #f2f2f2;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    text-align: center;
+  }
 `;
 
 const PrimaryBlueText = styled.h1`
@@ -131,16 +163,30 @@ const SecondaryGreyText = styled.h2`
   margin-top: 0.5rem;
   text-align: left;
   color: #424242;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    text-align: center;
+  }
 `;
 
 const TertiaryGreyText = styled.h4`
   margin-top: 0.5rem;
   margin-bottom: 1.5rem;
   color: #424242;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    text-align: center;
+  }
 `;
 
 const EmbedContainer = styled.div`
-  width: 50%;
+  width: 50vw;
+  height: auto;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    width: 80vw;
+    height: auto;
+  }
 `;
 
 export default HowItWorks;

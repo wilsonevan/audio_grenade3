@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import {GlobalSizes} from '../styles/GlobalStyles'
 
 const Footer = () => (
   <FooterContainer>
@@ -36,12 +37,18 @@ const FooterContainer = styled.div`
   padding: 5rem;
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 `;
 
 const FooterColumn = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  padding: 1rem;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    text-align: center;
+  }
 `;
 
 const ListHeader = styled.h3`
@@ -56,7 +63,6 @@ const ListItem = styled.h4`
 `;
 
 const RightsHeader = styled.h3`
-  // color: white !important;
   color: #349dc4 !important;
   margin: 0;
 `;
@@ -65,10 +71,16 @@ const CreatorContainer = styled.div`
   padding-top: 0.5rem;
   display: flex;
   justify-content: flex-start;
+  
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+  justify-content: center;
+
+  }
 `;
 
 const CreatorBody = styled.p`
   color: white !important;
+
 `;
 
 const CreatorLink = styled.a`
@@ -76,6 +88,7 @@ const CreatorLink = styled.a`
   font-size: 1.2rem;
   padding-left: 0.6rem;
   font-weight: 700;
+
 `;
 
 export default Footer;
