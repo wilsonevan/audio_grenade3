@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import firstImage from "../../images/_DSC6506_cropped.jpg";
+import firstImage from "../../images/_DSC3678_cropped.jpg";
 import productImage1 from "../../images/_DSC6583.jpg";
 import thirdImage from "../../images/_DSC6399.jpg";
 import { ButtonOrange, ButtonBlue } from "../../styles/Components";
@@ -14,24 +14,26 @@ const Home = () => {
       <PageContainer>
         <TopContainer>
           <LeftTextContainer>
-            <PrimaryText>Audio Grenade</PrimaryText>
-            <SecondaryText>
-              A unique, useful gift for your best clients and employees
-            </SecondaryText>
-            <SupportLink
-              href="https://audio-grenade.mybigcommerce.com/"
-              // target="_blank"
-            >
-              <ButtonOrange
-                style={{
-                  fontSize: "1.5rem",
-                  paddingLeft: "2rem",
-                  paddingRight: "2rem"
-                }}
+            <InnerTextContainer>
+              <PrimaryText>Audio Grenade</PrimaryText>
+              <SecondaryText>
+                A unique, useful gift for your best clients and employees
+              </SecondaryText>
+              <SupportLink
+                href="https://audio-grenade.mybigcommerce.com/"
+                // target="_blank"
               >
-                Shop Now
-              </ButtonOrange>
-            </SupportLink>
+                <ButtonOrange
+                  style={{
+                    fontSize: "1.5rem",
+                    paddingLeft: "2rem",
+                    paddingRight: "2rem"
+                  }}
+                >
+                  Shop Now
+                </ButtonOrange>
+              </SupportLink>
+            </InnerTextContainer>
           </LeftTextContainer>
         </TopContainer>
         <SecondContainer>
@@ -39,7 +41,7 @@ const Home = () => {
             <SecondImage src={productImage1} alt="code-screenshot" />
             <RightTextContainer>
               <PrimaryOrangeText>Sound Gifts</PrimaryOrangeText>
-              <SecondaryGreyText>For your Corporate Branding</SecondaryGreyText>
+              <SecondaryGreyText>Customized for your Corporate Branding</SecondaryGreyText>
             </RightTextContainer>
           </InnerContainer>
         </SecondContainer>
@@ -52,7 +54,8 @@ const Home = () => {
           </FullSoundText>
         </FullSoundTextContainer> */}
           <FullSoundTextContainer>
-            <PrimaryText>360 Degree Sound</PrimaryText>
+            <PrimaryText>A Unique Sound</PrimaryText>
+            <SecondaryText>On many surfaces,</SecondaryText>
             <SecondaryText>at the office, gym, or home</SecondaryText>
           </FullSoundTextContainer>
         </ThirdContainer>
@@ -61,7 +64,7 @@ const Home = () => {
           <QuoteContainer>
             <Quote>
               <QuoteAuthor>
-                <AuthorName>Brant Skousea</AuthorName>
+                <AuthorName>Brent Skousen</AuthorName>
                 <AuthorLocation>Mountain America Credit Union</AuthorLocation>
               </QuoteAuthor>
               <QuoteText>
@@ -75,7 +78,6 @@ const Home = () => {
                 <AuthorName>Jared McRae</AuthorName>
                 <AuthorLocation>Liberty Industrial Group</AuthorLocation>
               </QuoteAuthor>
-
               <QuoteText>
                 "I have found the Audio Grenade speakers to be a unique and
                 lasting gift due to their sound properties that turn everything
@@ -180,16 +182,30 @@ const LeftTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  color: white;
   margin-left: 18vw;
   margin-top: 45vh;
 
   @media (max-width: ${GlobalSizes.ScreenWidth}) {
-    text-align: center;
     margin: 0;
+    width: 80vw;
+  }
+`;
+
+const InnerTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: white;
+  width: auto;
+  background-color: rgba(18, 153, 255, 0.4);
+  padding: 3rem;
+  border-radius: 10px;
+  border: 1px solid white;
+
+  @media (max-width: ${GlobalSizes.ScreenWidth}) {
+    text-align: center;
     justify-content: center;
     align-items: center;
-    width: 80vw;
   }
 `;
 
@@ -213,9 +229,11 @@ const FullSoundTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  width: 80%;
+  width: auto;
+  /* height: auto; */
   margin-right: 10vw;
-  margin-top: 44vh;
+  margin-top: 42vh;
+  margin-bottom: 2rem;
 
   @media (max-width: ${GlobalSizes.ScreenWidth}) {
     margin: 0;
@@ -247,8 +265,8 @@ const PrimaryOrangeText = styled.h1`
 
 const SecondaryText = styled.h2`
   color: white !important;
-  margin-top: 0.5rem;
-  margin-bottom: 1.5rem;
+  margin: 0;
+  margin-bottom: 0.25rem;
 
   @media (max-width: ${GlobalSizes.ScreenWidth}) {
     text-align: center;
@@ -259,7 +277,6 @@ const SecondaryGreyText = styled.h2`
   text-align: right;
   color: #455a64 !important;
   margin-top: 0.5rem;
-  margin-bottom: 1rem;
 
   @media (max-width: ${GlobalSizes.ScreenWidth}) {
     text-align: center;

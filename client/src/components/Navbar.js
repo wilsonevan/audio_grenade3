@@ -169,7 +169,9 @@ const Navbar = props => {
     <NavContainer>
       <NavMenu>
         <MenuItem>
-          <Logo src={logo} alt="logo" className="App-logo" />
+          <NavLink to="/" onClick={() => activateItem(1)}>
+            <Logo src={logo} alt="logo" className="App-logo" />
+          </NavLink>
           <CompanyName>Audio Grenade</CompanyName>
         </MenuItem>
         {compactNavMenu()}

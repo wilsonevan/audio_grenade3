@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { GlobalSizes } from "../styles/GlobalStyles";
+import { GlobalSizes, GlobalColors } from "../styles/GlobalStyles";
 
 const ContactUs = () => {
   return (
@@ -11,20 +11,15 @@ const ContactUs = () => {
       </PageIntroContainer>
       <SalesContainer>
         <TextContainer>
-          <SalesHeader>For sales, please contact:</SalesHeader>
-          <SalesText>Chris Wilson, CTS</SalesText>
+          <SalesHeader>Learn More:</SalesHeader>
+          <SalesText>Chris Wilson</SalesText>
           <SalesTextContainer>
-            <SalesLabel>Phone: </SalesLabel>
             <SalesBigText>801-783-6269</SalesBigText>
           </SalesTextContainer>
           <SalesTextContainer>
-            <SalesLabel>Email: </SalesLabel>
             <SalesBigText>chris@audio-grenade.com</SalesBigText>
           </SalesTextContainer>
         </TextContainer>
-        <ImageContainer>
-          <img src="pic_trulli.jpg" alt="" />
-        </ImageContainer>
       </SalesContainer>
     </PageContainer>
   );
@@ -55,8 +50,8 @@ const SalesContainer = styled.div`
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
 
   @media (max-width: ${GlobalSizes.ScreenWidth}) {
     justify-content: center;
@@ -84,6 +79,9 @@ const SalesHeader = styled.h1`
   margin: 0;
   border: none;
   font-size: 2.5rem !important;
+
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid ${GlobalColors.SecondaryGrey};
 `;
 
 const SalesText = styled.h1`

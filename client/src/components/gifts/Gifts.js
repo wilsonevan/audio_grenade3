@@ -74,14 +74,14 @@ const Gifts = () => {
         </RotationContainer>
         <DetailsContainer>
           <TextContainer>
-            <DetailsHeader>For details, please contact:</DetailsHeader>
-            <DetailsText>Chris Wilson, CTS</DetailsText>
+            <DetailsHeader>
+              For details on corporate branding, please contact:
+            </DetailsHeader>
+            <DetailsText>Chris Wilson</DetailsText>
             <DetailsTextContainer>
-              <DetailsLabel>Phone: </DetailsLabel>
               <DetailsBigText>801-783-6269</DetailsBigText>
             </DetailsTextContainer>
             <DetailsTextContainer>
-              <DetailsLabel>Email: </DetailsLabel>
               <DetailsBigText>chris@audio-grenade.com</DetailsBigText>
             </DetailsTextContainer>
           </TextContainer>
@@ -185,8 +185,8 @@ const DetailsContainer = styled.div`
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
 
   @media (max-width: ${GlobalSizes.ScreenWidth}) {
     width: 80vw;
@@ -215,19 +215,27 @@ const DetailsHeader = styled.h1`
   margin: 0;
   border: none;
   font-size: 2.5rem !important;
+  width: 80%;
+  text-align: center;
+  padding: 0.25rem;
+
 `;
 
 const DetailsText = styled.h1`
   color: #424242 !important;
   border: none;
   font-size: 2.5rem !important;
-  margin-top: 1rem;
+  padding: 0.25rem;
+  margin: 0;
+  /* margin-top: 1rem; */
 `;
 const DetailsBigText = styled.h1`
   border: none;
   font-size: 2.5rem !important;
   margin: 0;
   color: #424242 !important;
+  padding: 0.25rem;
+
 `;
 
 const DetailsLabel = styled.h2`
